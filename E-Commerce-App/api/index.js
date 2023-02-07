@@ -6,6 +6,7 @@ const dotenv = require('dotenv')
 //dontenv.config()
 app.use(express.json())
 const userRouter = require("./src/routes/userRoute")
+const productRouter = require("./src/routes/productRoute")
 const authRouter = require("./src/routes/auth")
 const Crypto = require("crypto-js")
 //EJZPOnEmKTLDCQVa
@@ -20,8 +21,8 @@ mongoose
         console.log(err)
     })
 
-
-app.use("/api/user", userRouter)
+app.use("/api/products", productRouter)
+app.use("/api/users", userRouter)
 app.use("/api/auth", authRouter)
 
 // app.get("/api/test", ()=>{

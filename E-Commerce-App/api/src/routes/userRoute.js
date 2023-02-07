@@ -49,4 +49,44 @@ router.delete("/find/:id", verifyTokenAndAdmin, async (req, res) => {
 })
 
 
+// GET all users
+router.delete("/getusers", verifyTokenAndAdmin, async (req, res) => {
+    const query = req.body.new
+    try {
+        const users = query ? await User.find().sort({ _id: -1 }).limit(1) : await User.find(req.body.id)
+        // const { password, ...others } = user._doc
+        res.status(200).json(users)
+
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+
+//Get user stats
+router.delete("/stats", verifyTokenAndAdmin, async (req, res) => {
+
+    const date = new Date()
+    const lastyear = new Date(date.setFullYear(data.getFullYear() - 1))
+
+    try {
+        const data = await User.aggregate([
+            { $match: { createdAt: { $gte: lastyear } } },
+            {
+                $project: {
+                    month: { $month: "$createdAt" }
+                }
+            },
+            {
+                $group: {
+                    _id: "$month",
+                    total: { $sum }
+                }
+            }
+        ])
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
 module.exports = router
