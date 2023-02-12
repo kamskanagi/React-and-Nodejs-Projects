@@ -25,7 +25,7 @@ router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
         const updatedProduct = await Product.findByIdAndUpdate(req.body.id, {
             $set: req.body
         }, { new: true })
-        res.status(200).json(updatedUser)
+        res.status(200).json(updatedProduct)
     } catch (err) {
         res.status(500).json(err)
     }
@@ -57,7 +57,7 @@ router.delete("/find/:id", async (req, res) => {
 
 
 // GET all products
-router.delete("/", async (req, res) => {
+router.get("/", async (req, res) => {
     const qNew = req.body.new
     const qCategory = req.body.category
     try {
