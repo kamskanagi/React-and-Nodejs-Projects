@@ -1,3 +1,3 @@
 # Note
 
-This repository container React and Nodejs real-world project
+This repository container React and Nodejs real-world projects.
