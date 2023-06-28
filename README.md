@@ -22,3 +22,5 @@ This project is a backend dashboard for a marketplace application like Fiverr. I
 ### 6. E-commerce Application
 A fully-functional e-commerce application created using React and Node.js. This application includes functionalities such as user authentication, product listing, shopping cart, and secure checkout process.
 
+### 7. Backend Bashboard
+This application holds the codebase for a robust, feature-rich backend dashboard. Developed using technologies such as react, Node.js and Express, it provides administrators with a variety of tools to effectively manage and monitor system operations.
